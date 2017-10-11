@@ -1,7 +1,6 @@
-require "pry"
 class Translator
 
-  attr_reader :english_to_morse, :morse_to_eng
+  attr_reader :english_to_morse
 
   def initialize
     @english_to_morse = {
@@ -65,8 +64,7 @@ class Translator
   def morse_to_eng(morse)
     splitter = morse.chars
     x = hash_inverter
-
-    trans = splitter.map { |morse_code| x[morse_code] if x[morse_code] }
+    trans = splitter.map { |morse_code| x[morse_code] if x[morse_code].match(/./m) }
     trans.join
   end
 end

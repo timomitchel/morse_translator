@@ -57,6 +57,7 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_morse_to_eng_can_translate_correctly
+    skip
     actual = "hello world"
     expected = translator.morse_to_eng("......-...-..--- .-----.-..-..-..")
 
