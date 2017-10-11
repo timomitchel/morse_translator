@@ -23,6 +23,12 @@ class TranslatorTest < Minitest::Test
     assert_equal " ", translator.english_to_morse[' ']
   end
 
+  def test_hash_inverter_works_correctly
+    assert_equal "4", translator.hash_inverter["....-"]
+    assert_equal "t", translator.hash_inverter["-"]
+    assert_equal "k", translator.hash_inverter["-.-"]
+  end
+
   def test_eng_to_morse_can_translate_with_lowercase_letters
     actual = "......-...-..--- .-----.-..-..-.."
     expected = translator.eng_to_morse("hello world")
@@ -48,6 +54,7 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_morse_to_eng_can_translate_correctly
+    skip
     actual = "hello world"
     expected = translator.morse_to_eng("......-...-..--- .-----.-..-..-..")
 

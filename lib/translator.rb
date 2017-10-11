@@ -64,13 +64,10 @@ class Translator
   end
 
   def morse_to_eng(morse)
-    @empty = ''
+    empty = ''
     split = morse.chars
     x = hash_inverter
-    split.map { |morse_code| @empty << x[morse_code] if x[morse_code]}
-    @empty
+    split.map { |morse_code| empty += x[morse_code] if x[morse_code] }
+    empty
   end
-
-
-
 end
