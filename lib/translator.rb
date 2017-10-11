@@ -59,15 +59,14 @@ class Translator
   def from_file(file_input)
     file = File.open(file_input).readlines
     formatted_file = file[0].chomp
-
     eng_to_morse(formatted_file)
   end
 
   def morse_to_eng(morse)
-    empty = ''
-    split = morse.chars
+    splitter = morse.chars
     x = hash_inverter
-    split.map { |morse_code| empty += x[morse_code] if x[morse_code] }
-    empty
+
+    trans = splitter.map { |morse_code| x[morse_code] if x[morse_code] }
+    trans.join
   end
 end
